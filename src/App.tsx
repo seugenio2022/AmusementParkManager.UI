@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Container from "@mui/material/Container";
+import { NavBar } from "./components/NavBar";
+import { ColorModeContextProvider } from "./contexts";
+import { CssBaseline } from "@mui/material";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Login } from "./pages/Login";
+import { Tickets } from "./pages/Tickets";
+import { Users } from "./pages/Users";
+import { Sales } from "./pages/Sales";
+import { Games } from "./pages/Games";
+import { Employees } from "./pages/Employees";
+import { Buyers } from "./pages/Buyers";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const isLogged = true;
+	return (
+		<BrowserRouter>
+			<ColorModeContextProvider>
+				<CssBaseline enableColorScheme />
+				<NavBar />
+				<Container component="main" maxWidth="lg">
+					<Routes>
+						<Route path="/login" element={<Login />} />
+						<Route path="/buyers" element={<Buyers />} />
+						<Route path="/employees" element={<Employees />} />
+						<Route path="/games" element={<Games />} />
+						<Route path="/sales" element={<Sales />} />
+						<Route path="/tickets" element={<Tickets />} />
+						<Route path="/users" element={<Users />} />
+					</Routes>
+				</Container>
+			</ColorModeContextProvider>
+		</BrowserRouter>
+	);
 }
 
-export default App
+export default App;
