@@ -15,11 +15,11 @@ import { useTranslation } from "react-i18next";
 import { ColorModeContext, Mode } from "../../contexts";
 import { APMButton } from "../Buttons";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import { DrawerFormContext } from "@/contexts/drawerFormContext";
+import { DrawerFormContext, DrawerFormContextType } from "@/contexts/drawerFormContext";
 
 export default function Configuration() {
 	const { i18n, t } = useTranslation();
-	const { drawerIsOpen, setToggleDrawer } = React.useContext(DrawerFormContext);
+	const { drawerIsOpen, setToggleDrawer } = React.useContext(DrawerFormContext) as DrawerFormContextType;
 
 	const onChangeLanguage = (e: React.MouseEvent<HTMLElement>, newAlignment: string) => {
 		const lang_code = newAlignment;
@@ -35,7 +35,9 @@ export default function Configuration() {
 	const list = () => (
 		<Box sx={{ width: 300 }} role="presentation" onClick={setToggleDrawer(false)} onKeyDown={setToggleDrawer(false)}>
 			<Box m={3}>
-				<Typography variant="h6">{t("language")}</Typography>
+				<Typography pb={1} variant="h6">
+					{t("language")}
+				</Typography>
 				<ToggleButtonGroup
 					color="primary"
 					value={i18n.language}
@@ -51,7 +53,9 @@ export default function Configuration() {
 				</ToggleButtonGroup>
 			</Box>
 			<Box m={3}>
-				<Typography variant="h6">{t("colorMode")}</Typography>
+				<Typography pb={1} variant="h6">
+					{t("colorMode")}
+				</Typography>
 				<ToggleButtonGroup color="primary" value={mode} exclusive onChange={handleDarkMode} aria-label="Platform">
 					<ToggleButton value={Mode.Dark}>{t("colorDarkMode")}</ToggleButton>
 					<ToggleButton value={Mode.Ligth}>{t("colorLightMode")}</ToggleButton>
