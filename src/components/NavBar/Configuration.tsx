@@ -1,18 +1,25 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import { ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
+import {
+	IconButton,
+	ListItem,
+	ListItemButton,
+	ListItemIcon,
+	ListItemText,
+	ToggleButton,
+	ToggleButtonGroup,
+	Typography,
+} from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { ColorModeContext, Mode } from "../../contexts";
-
-type Anchor = "right";
+import { APMButton } from "../Buttons";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import { DrawerFormContext } from "@/contexts/drawerFormContext";
 
 export default function Configuration() {
-	const [state, setState] = React.useState({
-		right: false,
-	});
 	const { i18n, t } = useTranslation();
+	const { drawerIsOpen, setToggleDrawer } = React.useContext(DrawerFormContext);
 
 	const onChangeLanguage = (e: React.MouseEvent<HTMLElement>, newAlignment: string) => {
 		const lang_code = newAlignment;
@@ -24,24 +31,9 @@ export default function Configuration() {
 	const handleDarkMode = () => {
 		toggleColorMode();
 	};
-	const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
-		if (
-			event.type === "keydown" &&
-			((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
-		) {
-			return;
-		}
 
-		setState({ ...state, [anchor]: open });
-	};
-
-	const list = (anchor: Anchor) => (
-		<Box
-			sx={{ width: 300 }}
-			role="presentation"
-			onClick={toggleDrawer(anchor, false)}
-			onKeyDown={toggleDrawer(anchor, false)}
-		>
+	const list = () => (
+		<Box sx={{ width: 300 }} role="presentation" onClick={setToggleDrawer(false)} onKeyDown={setToggleDrawer(false)}>
 			<Box m={3}>
 				<Typography variant="h6">{t("language")}</Typography>
 				<ToggleButtonGroup
@@ -70,11 +62,11 @@ export default function Configuration() {
 
 	return (
 		<>
-			<Button color="inherit" onClick={toggleDrawer("right", true)}>
-				{t("configuration")}
-			</Button>
-			<Drawer anchor={"right"} open={state["right"]} onClose={toggleDrawer("right", false)}>
-				{list("right")}
+			<IconButton size="large" onClick={setToggleDrawer(true)} color="primary">
+				<SettingsOutlinedIcon fontSize="inherit" />
+			</IconButton>
+			<Drawer anchor={"right"} open={drawerIsOpen} onClose={setToggleDrawer(false)}>
+				{list()}
 			</Drawer>
 		</>
 	);

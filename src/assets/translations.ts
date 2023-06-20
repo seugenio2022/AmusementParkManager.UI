@@ -20,6 +20,18 @@ export const resources = {
 			sales: 'Sales',
 			tickets: 'Tickets',
 			users: 'Users',
+			create: 'New',
+			listBuyers: 'Buyer List',
+			addButton: 'Add',
+			addBuyer: 'Add Buyer',
+			saveButton: 'Save',
+			action: 'Action',
+			phone: 'Phone',
+			noData: 'No Data',
+			editBuyer: 'Edit Buyer',
+			createdOk: 'Successfully Created',
+			updatedOk: 'Successfully Updated',
+			deletedOk: 'Successfully Deleted'
 		}
 	},
 	es: {
@@ -43,6 +55,18 @@ export const resources = {
 			sales: 'Ventas',
 			tickets: 'Entradas',
 			users: 'Usuarios',
+			create: 'Nuevo',
+			listBuyers: 'Lista de Compradores',
+			addButton: 'Agregar',
+			addBuyer: 'Agregar Comprador',
+			saveButton: 'Guardar',
+			action: 'Acción',
+			phone: 'Teléfono',
+			noData: 'Sin Datos',
+			editBuyer: 'Editar Comprador',
+			createdOk: 'Creado Correctamente',
+			updatedOk: 'Editado Correctamente',
+			deletedOk: 'Borrado Correctamente'
 		}
 	}
 }

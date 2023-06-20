@@ -7,6 +7,4 @@ import App from "./App.tsx";
 import "./i18n";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-	<App />
-);
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(<App />);

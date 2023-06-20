@@ -1,6 +1,6 @@
 export type Person = {
 	name: string,
-	lastname: string,
-	dni: number,
-	birthdate: string
+	lastName: string,
+	mail?: string,
+	phone: string
 }

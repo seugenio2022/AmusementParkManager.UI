@@ -1,5 +1,64 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { PaletteMode, ThemeOptions, colors } from "@mui/material";
+
+const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
+	palette: {
+		mode,
+		...(mode === "light"
+			? {
+					// palette values for light mode
+					primary: colors.blue,
+					secondary: colors.deepPurple,
+					background: {
+						default: "rgb(238, 242, 246)",
+						paper: "#ffffff",
+					},
+					// eslint-disable-next-line no-mixed-spaces-and-tabs
+			  }
+			: {
+					// palette values for dark mode
+					primary: colors.blue,
+					secondary: colors.deepPurple,
+					background: {
+						default: "#1a223f",
+						paper: "#111936",
+					},
+
+					text: {
+						primary: "#d7dcec",
+					},
+					// eslint-disable-next-line no-mixed-spaces-and-tabs
+			  }),
+	},
+	breakpoints: {
+		values: {
+			xs: 0,
+			sm: 600,
+			md: 960,
+			lg: 1280,
+			xl: 1920,
+		},
+	},
+	components: {
+		MuiButtonBase: {
+			styleOverrides: {
+				root: {
+					fontWeight: 500,
+					textTransform: "capitalize",
+					borderRadius: "4px",
+				},
+			},
+		},
+		MuiDialog: {
+			styleOverrides: {
+				paper: {
+					padding: "12px 0 12px 0",
+				},
+			},
+		},
+	},
+});
 
 export enum Mode {
 	Ligth = "light",
@@ -18,32 +77,13 @@ export function ColorModeContextProvider({ children }: any) {
 	const colorMode = React.useMemo(
 		() => ({
 			toggleColorMode: () => {
-				setMode((prevMode: any) =>
-					prevMode === Mode.Ligth ? Mode.Dark : Mode.Ligth
-				);
+				setMode((prevMode: any) => (prevMode === Mode.Ligth ? Mode.Dark : Mode.Ligth));
 			},
 			mode,
 		}),
 		[mode]
 	);
-	const theme = React.useMemo(
-		() =>
-			createTheme({
-				palette: {
-					mode,
-				},
-				breakpoints: {
-					values: {
-						xs: 0,
-						sm: 600,
-						md: 900,
-						lg: 1400,
-						xl: 1536,
-					},
-				},
-			}),
-		[mode]
-	);
+	const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
 	return (
 		<ColorModeContext.Provider value={colorMode}>
