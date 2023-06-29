@@ -16,7 +16,7 @@ export const resources = {
 			birthdate: 'Birth Date',
 			buyers: 'Buyers',
 			employees: 'Employees',
-			games: 'Games',
+
 			sales: 'Sales',
 			tickets: 'Tickets',
 			users: 'Users',
@@ -31,7 +31,15 @@ export const resources = {
 			editBuyer: 'Edit Buyer',
 			createdOk: 'Successfully Created',
 			updatedOk: 'Successfully Updated',
-			deletedOk: 'Successfully Deleted'
+			deletedOk: 'Successfully Deleted',
+			games: {
+				menu: 'Games',
+				listGames: 'Game List',
+				addGame: 'Add Game',
+				editGame: 'Edit Game',
+				price: 'Price',
+				schedules: 'Horarios',
+			}
 		}
 	},
 	es: {
@@ -51,7 +59,6 @@ export const resources = {
 			birthdate: 'Fecha de nacimiento',
 			buyers: 'Compradores',
 			employees: 'Empleados',
-			games: 'Juegos',
 			sales: 'Ventas',
 			tickets: 'Entradas',
 			users: 'Usuarios',
@@ -66,7 +73,15 @@ export const resources = {
 			editBuyer: 'Editar Comprador',
 			createdOk: 'Creado Correctamente',
 			updatedOk: 'Editado Correctamente',
-			deletedOk: 'Borrado Correctamente'
+			deletedOk: 'Borrado Correctamente',
+			games: {
+				menu: 'Juegos',
+				listGames: 'Lista de Juegos',
+				addGame: 'Agregar Juego',
+				editGame: 'Editar Juego',
+				price: 'Precio',
+				schedules: 'Horarios'
+			}
 		}
 	}
 }

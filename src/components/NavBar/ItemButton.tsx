@@ -1,14 +1,14 @@
-import { ListItem, ListItemButton, ListItemText } from "@mui/material";
-import { MouseEventHandler } from "react";
-
+import { ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 type Props = {
 	onClick: any;
 	text: string;
+	icon: any;
 };
-function ItemButton({ onClick, text }: Props) {
+function ItemButton({ onClick, text, icon }: Props) {
 	return (
 		<ListItem disablePadding>
 			<ListItemButton onClick={() => onClick()}>
+				<ListItemIcon sx={{ minWidth: "35px" }}>{icon}</ListItemIcon>
 				<ListItemText primary={text} />
 			</ListItemButton>
 		</ListItem>

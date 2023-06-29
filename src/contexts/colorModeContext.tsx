@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { PaletteMode, ThemeOptions, colors } from "@mui/material";
+import shadows from "@mui/material/styles/shadows";
 
 const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
 	palette: {
@@ -11,7 +12,7 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
 					primary: colors.blue,
 					secondary: colors.deepPurple,
 					background: {
-						default: "rgb(238, 242, 246)",
+						default: "#eef2f6",
 						paper: "#ffffff",
 					},
 					// eslint-disable-next-line no-mixed-spaces-and-tabs
@@ -21,7 +22,7 @@ const getDesignTokens = (mode: PaletteMode): ThemeOptions => ({
 					primary: colors.blue,
 					secondary: colors.deepPurple,
 					background: {
-						default: "#1a223f",
+						default: "#111a35",
 						paper: "#111936",
 					},
 

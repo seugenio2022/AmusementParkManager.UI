@@ -73,7 +73,7 @@ export default function GenericTable<T>({
 
 	return (
 		<>
-			<Paper elevation={2}>
+			<Paper elevation={1} sx={{ borderRadius: "10px",boxShadow:"none"}}>
 				<Typography sx={{ display: "inline-flex", width: "85%" }} p={3} variant="h6">
 					{title}
 				</Typography>
@@ -85,11 +85,7 @@ export default function GenericTable<T>({
 						<TableHead>
 							<TableRow>
 								{columns.map((column) => (
-									<TableCell
-										sx={{ borderBottom: "1px solid rgba(189, 200, 240, 0.082)" }}
-										key={column.id}
-										align={column.align || "left"}
-									>
+									<TableCell key={column.id} align={column.align || "left"}>
 										{column.label}
 									</TableCell>
 								))}
@@ -98,13 +94,13 @@ export default function GenericTable<T>({
 						<TableBody>
 							{rows.length > 0 ? (
 								rows.map((row) => (
-									<TableRow hover key={row.id} sx={{ height: "75px" }}>
+									<TableRow
+										hover
+										key={row.id}
+										sx={{ borderBottomWidth: 2, "&:last-child td, &:last-child th": { border: 0 }, height: "75px" }}
+									>
 										{columns.map((column) => (
-											<TableCell
-												sx={{ borderBottom: "1px solid rgba(189, 200, 240, 0.082)" }}
-												key={column.id}
-												align={column.align || "left"}
-											>
+											<TableCell key={column.id} align={column.align || "left"}>
 												{column.id == "action" ? (
 													<Stack justifyContent={"center"} direction="row" spacing={1}>
 														<EditButton onClick={() => handleOnEdit(row)} />
@@ -119,7 +115,7 @@ export default function GenericTable<T>({
 								))
 							) : (
 								<TableRow hover>
-									<TableCell sx={{ borderBottom: "1px solid rgba(189, 200, 240, 0.082)" }} align={"center"} colSpan={6}>
+									<TableCell align={"center"} colSpan={6}>
 										{t("noData")}
 									</TableCell>
 								</TableRow>

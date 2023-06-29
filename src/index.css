@@ -1,6 +1,7 @@
 body {
   margin: 0;
   place-items: center;
-  
+  padding-right: 25px;
+  padding-left: 25px;
 }
 
