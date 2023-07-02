@@ -13,8 +13,23 @@ function Games() {
 	const { t } = useTranslation();
 	const { setToggleDrawer } = useContext(DrawerFormContext) as DrawerFormContextType;
 
-	const actionForGetAll = () => {
-		return gameService.getAll();
+	const actionForGetAll = async () => {
+		return await gameService
+			.getAll()
+			.then((res) => {
+				const data = res.data.map((game) => {
+					const schedulesFormatted = game.schedules.map(
+						(schedule) => `${schedule.initialTime}hs - ${schedule.endTime}hs`
+					);
+					return { ...game, schedulesFormatted: schedulesFormatted };
+				});
+				const result = { data };
+				result.data = data;
+				return result;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
 	const actionForDelete = (id: number) => {
@@ -24,7 +39,7 @@ function Games() {
 		{ id: "id", label: "ID", align: "center" },
 		{ id: "name", label: t("name"), align: "center" },
 		{ id: "price", label: t("games.price"), align: "center" },
-		{ id: "schedules", label: t("games.schedules"), align: "center" },
+		{ id: "schedulesFormatted", label: t("games.schedules"), align: "center" },
 		{ id: "action", label: t("action"), align: "center" },
 	];
 

@@ -38,7 +38,9 @@ export const resources = {
 				addGame: 'Add Game',
 				editGame: 'Edit Game',
 				price: 'Price',
-				schedules: 'Horarios',
+				schedules: 'Schedule',
+				initialTime: 'Initial',
+				endTime: 'End'
 			}
 		}
 	},
@@ -80,7 +82,9 @@ export const resources = {
 				addGame: 'Agregar Juego',
 				editGame: 'Editar Juego',
 				price: 'Precio',
-				schedules: 'Horarios'
+				schedules: 'Horarios',
+				initialTime: 'Inicio',
+				endTime: 'Fin'
 			}
 		}
 	}

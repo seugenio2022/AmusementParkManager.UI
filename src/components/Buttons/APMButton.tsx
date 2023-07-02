@@ -7,7 +7,7 @@ function APMButton(props: ButtonProps) {
 				textTransform: "capitalize",
 				borderRadius: "4px",
 			}}
-			size="large"
+			size={props.size ?? "large"}
 			type={props.type}
 			startIcon={props.startIcon}
 			onClick={props.onClick}

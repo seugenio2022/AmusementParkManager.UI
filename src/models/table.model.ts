@@ -15,7 +15,7 @@ export interface TableProps<T> {
 	title: string;
 	onAdd: (event: React.KeyboardEvent | React.MouseEvent) => void
 	addTitle: string
-	actionForGetAll: () => Promise<AxiosResponse<T[], any>>
+	actionForGetAll: any//() => Promise<AxiosResponse<T[], any>>
 	actionForDelete: (id: number) => Promise<AxiosResponse<any, any>>
 	createForm: any
 	editForm: any

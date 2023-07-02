@@ -1,4 +1,4 @@
-import { RowData, TableProps } from "@/models";
+import { RowData, TableColumn, TableProps } from "@/models";
 import {
 	TableContainer,
 	Table,
@@ -9,6 +9,7 @@ import {
 	Typography,
 	Stack,
 	Paper,
+	Chip,
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { APMButton } from "../Buttons";
@@ -51,11 +52,11 @@ export default function GenericTable<T>({
 
 	useEffect(() => {
 		actionForGetAll()
-			.then((result) => {
+			.then((result: any) => {
 				setRows(result.data as RowData[]);
 				setReload(false);
 			})
-			.catch((err) => {
+			.catch((err: any) => {
 				console.log(err);
 			});
 	}, [reload]);
@@ -70,10 +71,23 @@ export default function GenericTable<T>({
 		setFormMode("create");
 		openDrawer();
 	};
-
+	const renderRow = (row: RowData, col: TableColumn) => {
+		if (Array.isArray(row[col.id]))
+			return row[col.id].map((item: any, key: number) => (
+				<Chip key={key} sx={{ mr: 1 }} size="small" label={item} variant="filled" />
+			));
+		if (col.id == "action")
+			return (
+				<Stack justifyContent={"center"} direction="row" spacing={1}>
+					<EditButton onClick={() => handleOnEdit(row)} />
+					<DeleteButton onClick={() => handleOnDelete(row.id)} />
+				</Stack>
+			);
+		return row[col.id];
+	};
 	return (
 		<>
-			<Paper elevation={1} sx={{ borderRadius: "10px",boxShadow:"none"}}>
+			<Paper elevation={1} sx={{ borderRadius: "10px", boxShadow: "none" }}>
 				<Typography sx={{ display: "inline-flex", width: "85%" }} p={3} variant="h6">
 					{title}
 				</Typography>
@@ -101,14 +115,7 @@ export default function GenericTable<T>({
 									>
 										{columns.map((column) => (
 											<TableCell key={column.id} align={column.align || "left"}>
-												{column.id == "action" ? (
-													<Stack justifyContent={"center"} direction="row" spacing={1}>
-														<EditButton onClick={() => handleOnEdit(row)} />
-														<DeleteButton onClick={() => handleOnDelete(row.id)} />
-													</Stack>
-												) : (
-													row[column.id]
-												)}
+												{renderRow(row, column)}
 											</TableCell>
 										))}
 									</TableRow>
