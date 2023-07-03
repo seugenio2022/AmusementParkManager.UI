@@ -8,6 +8,7 @@ function APMButton(props: ButtonProps) {
 				borderRadius: "4px",
 			}}
 			size={props.size ?? "large"}
+			color={props.color}
 			type={props.type}
 			startIcon={props.startIcon}
 			onClick={props.onClick}

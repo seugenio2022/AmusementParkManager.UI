@@ -41,7 +41,10 @@ export const resources = {
 				schedules: 'Schedule',
 				initialTime: 'Initial',
 				endTime: 'End'
-			}
+			},
+			confirmDelete: 'Are you sure you want to delete?',
+			confirm: 'Confirm',
+			cancel: 'Cancel'
 		}
 	},
 	es: {
@@ -85,7 +88,10 @@ export const resources = {
 				schedules: 'Horarios',
 				initialTime: 'Inicio',
 				endTime: 'Fin'
-			}
+			},
+			confirmDelete: '¿Estás seguro de que quieres eliminar?',
+			confirm: 'Confirmar',
+			cancel: 'Cancelar'
 		}
 	}
 }

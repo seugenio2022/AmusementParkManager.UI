@@ -13,13 +13,15 @@ import {
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { APMButton } from "../Buttons";
-import { DeleteButton, EditButton } from ".";
+import { ConfirmDelete, DeleteButton, EditButton } from ".";
 import { t } from "i18next";
 import { GenericTableContext, GenericTableContextType } from "@/contexts/genericTableContext";
 import { useContext, useEffect, useState } from "react";
 import { DrawerFormContext, DrawerFormContextType } from "@/contexts/drawerFormContext";
 import { SnackAlert } from "../SnackAlert";
 import { useSnackAlert } from "@/hooks";
+import { ConfirmDeleteType } from "./ConfirmDelete";
+import useConfirmDelete from "@/hooks/useConfirmDelete";
 
 export default function GenericTable<T>({
 	columns,
@@ -36,20 +38,22 @@ export default function GenericTable<T>({
 
 	const { openDrawer } = useContext(DrawerFormContext) as DrawerFormContextType;
 	const [formMode, setFormMode] = useState<"create" | "edit">("create");
+	const confirmDelete = useConfirmDelete();
 
 	const handleOnDelete = (id: number) => {
-		if (confirm("borrar?")) {
-			actionForDelete(id)
-				.then(() => {
-					setReload(true);
-					snackAlert.showDeletedOk();
-				})
-				.catch((err) => {
-					snackAlert.showDeletedError();
-				});
-		}
+		confirmDelete.open();
+		confirmDelete.setIdToDelete(id);
 	};
-
+	const onDelete = () => {
+		actionForDelete(confirmDelete.idToDelete)
+			.then(() => {
+				setReload(true);
+				snackAlert.showDeletedOk();
+			})
+			.catch((err) => {
+				snackAlert.showDeletedError();
+			});
+	};
 	useEffect(() => {
 		actionForGetAll()
 			.then((result: any) => {
@@ -134,6 +138,12 @@ export default function GenericTable<T>({
 			{formMode == "create" ? createForm : editForm}
 
 			<SnackAlert isOpen={snackAlert.open} onClose={snackAlert.closeSnackAlert} message={snackAlert.message} />
+			<ConfirmDelete
+				handleConfirm={onDelete}
+				isOpen={confirmDelete.isOpen}
+				open={confirmDelete.open}
+				close={confirmDelete.close}
+			/>
 		</>
 	);
 }

@@ -4,9 +4,12 @@ type ChipScheduleType = {
 	size: "small" | "medium";
 	initialTime?: number;
 	endTime?: number;
+	handleDelete: any;
 };
 
-function ChipSchedule({ size, initialTime, endTime }: ChipScheduleType) {
-	return <Chip size={size} label={`${initialTime}hs - ${endTime}hs`} variant="filled" />;
+function ChipSchedule({ size, initialTime, endTime, handleDelete }: ChipScheduleType) {
+	return (
+		<Chip onDelete={() => handleDelete()} size={size} label={`${initialTime}hs - ${endTime}hs`} variant="filled" />
+	);
 }
 export default ChipSchedule;

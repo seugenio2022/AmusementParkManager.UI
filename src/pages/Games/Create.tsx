@@ -15,7 +15,10 @@ function Create() {
 	const [currentSchedule, setCurrentSchedule] = useState<Schedule>({});
 
 	const onSubmit = (newGame: Game) => {
-		newGame.schedules = schedules;
+		newGame.schedules = schedules.map(({ initialTime, endTime }: any) => {
+			return { initialTime, endTime };
+		});
+
 		gameService
 			.create(newGame)
 			.then(() => {
@@ -30,10 +33,12 @@ function Create() {
 	function handleOnAdd(): void {
 		setSchedules((current) => [
 			...current,
-			{ initialTime: currentSchedule.initialTime, endTime: currentSchedule.endTime },
+			{ id: current.length, initialTime: currentSchedule.initialTime, endTime: currentSchedule.endTime },
 		]);
 	}
-
+	function onDeleteSchedule(id?: number) {
+		setSchedules((schs) => schs.filter((sh) => sh.id !== id));
+	}
 	return (
 		<DrawerForm title={t("games.addGame")} onSubmit={onSubmit} formValues={emptyGame}>
 			<Field fullWidth name="name" label={t("name")} variant="outlined" as={TextField} />
@@ -66,7 +71,13 @@ function Create() {
 			</Stack>
 			<Stack mt={1} spacing={2} width={"100%"} direction="row" alignContent={"flex-start"}>
 				{schedules?.map((sh, key) => (
-					<ChipSchedule key={key} size="medium" initialTime={sh.initialTime} endTime={sh.endTime} />
+					<ChipSchedule
+						handleDelete={() => onDeleteSchedule(key)}
+						key={key}
+						size="medium"
+						initialTime={sh.initialTime}
+						endTime={sh.endTime}
+					/>
 				))}
 			</Stack>
 		</DrawerForm>

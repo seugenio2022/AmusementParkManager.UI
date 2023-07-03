@@ -19,14 +19,16 @@ function Edit() {
 
 	useEffect(() => {
 		setCurrentSchedule({});
-		const sh = rowForEdit.schedules.map(({ initialTime, endTime }: any) => {
-			return { initialTime, endTime };
+		const sh = rowForEdit.schedules.map(({ initialTime, endTime, id }: any) => {
+			return { initialTime, endTime, id };
 		});
 		setSchedules([...sh]);
 	}, [drawerIsOpen]);
 
 	const onSubmit = (newGame: Game) => {
-		newGame.schedules = schedules;
+		newGame.schedules = schedules.map(({ initialTime, endTime }: any) => {
+			return { initialTime, endTime };
+		});
 
 		gameService
 			.update(newGame)
@@ -39,10 +41,10 @@ function Edit() {
 			});
 	};
 	function handleOnAdd(): void {
-		setSchedules((current) => [
-			...current,
-			{ initialTime: currentSchedule.initialTime, endTime: currentSchedule.endTime },
-		]);
+		setSchedules((current) => [...current, currentSchedule]);
+	}
+	function onDeleteSchedule(id?: number) {
+		setSchedules((schs) => schs.filter((sh) => sh.id !== id));
 	}
 	return (
 		<DrawerForm title={t("games.editGame")} onSubmit={onSubmit} formValues={rowForEdit}>
@@ -76,7 +78,13 @@ function Edit() {
 			</Stack>
 			<Stack mt={1} spacing={2} width={"100%"} direction="row" alignContent={"flex-start"}>
 				{schedules?.map((sh, key) => (
-					<ChipSchedule key={key} size="medium" initialTime={sh.initialTime} endTime={sh.endTime} />
+					<ChipSchedule
+						handleDelete={() => onDeleteSchedule(sh.id)}
+						key={key}
+						size="medium"
+						initialTime={sh.initialTime}
+						endTime={sh.endTime}
+					/>
 				))}
 			</Stack>
 		</DrawerForm>
