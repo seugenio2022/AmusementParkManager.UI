@@ -21,9 +21,9 @@ export default function Tickets() {
 	};
 	const salesColumns: TableColumn[] = [
 		{ id: "id", label: t("tickets.id"), align: "center" },
-		{ id: "dateTime", label: t("tickets.dateTime"), align: "center" },
 		{ id: "buyerMail", label: t("tickets.buyer"), align: "center" },
 		{ id: "gameName", label: t("tickets.game"), align: "center" },
+		{ id: "dateTime", label: t("tickets.dateTime"), align: "center" },
 		{ id: "action", label: t("action"), align: "center" },
 	];
 

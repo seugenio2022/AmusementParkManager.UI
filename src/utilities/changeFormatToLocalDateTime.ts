@@ -3,11 +3,11 @@ export default function changeFormatToLocalDateTime(fechaHora: string) {
 	const fechaHoraObjeto = new Date(fechaHora);
 
 
-	const dia = fechaHoraObjeto.getUTCDate();
-	const mes = fechaHoraObjeto.getUTCMonth() + 1;
-	const anio = fechaHoraObjeto.getUTCFullYear();
-	const hora = fechaHoraObjeto.getUTCHours();
-	const minutos = fechaHoraObjeto.getUTCMinutes();
+	const dia = fechaHoraObjeto.getDate();
+	const mes = fechaHoraObjeto.getMonth() + 1;
+	const anio = fechaHoraObjeto.getFullYear();
+	const hora = fechaHoraObjeto.getHours();
+	const minutos = fechaHoraObjeto.getMinutes();
 
 	const fechaHoraFormateada = agregarCeroIzquierda(dia) + '-' + agregarCeroIzquierda(mes) + '-' + anio + ':' + agregarCeroIzquierda(hora) + ':' + agregarCeroIzquierda(minutos);
 

@@ -6,19 +6,27 @@ import { DrawerForm } from "@/components/DrawerForm";
 import { GenericTableContext, GenericTableContextType } from "@/contexts/genericTableContext";
 import { ChangeEvent, useContext, useEffect, useState } from "react";
 
-import { changeFormatToLocalDate } from "@/utilities";
+import { changeFormatToLocalDate, changeFormatToLocalDateTime } from "@/utilities";
 import { ticketService } from "./services";
 import { Ticket } from ".";
 import { TicketForm } from "./components";
+import { useTicketForm } from "./hooks";
 
 function Edit() {
 	const { t } = useTranslation();
 	const { setReload, rowForEdit, snackAlert } = useContext(GenericTableContext) as GenericTableContextType;
+	const ticketForm = useTicketForm();
 
-	const onSubmit = (updatedTicket: Ticket) => {
+	const onSubmit = () => {
 		debugger;
+		const ticketToSend: Ticket = {
+			id: ticketForm.ticket.id,
+			buyerId: ticketForm.buyerSelected.id ?? 0,
+			gameId: ticketForm.gameSelected?.id ?? 0,
+			dateTime: changeFormatToLocalDateTime(ticketForm.ticketDateTime),
+		};
 		ticketService
-			.update(updatedTicket)
+			.update(ticketToSend)
 			.then((result) => {
 				setReload(true);
 				snackAlert.showUpdatedOk();
@@ -28,12 +36,12 @@ function Edit() {
 			});
 	};
 	useEffect(() => {
-		console.log(first);
+		console.log();
 	}, []);
-
+	const handleChangeForm = () => {};
 	return (
 		<DrawerForm title={t("tickets.editTicket")} onSubmit={onSubmit} formValues={rowForEdit}>
-			<TicketForm />
+			<TicketForm onChange={handleChangeForm} />
 		</DrawerForm>
 	);
 }
