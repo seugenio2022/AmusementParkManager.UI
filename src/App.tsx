@@ -5,7 +5,7 @@ import { CssBaseline, Paper } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { TicketRoutes } from "./pages/Tickets";
-import { Users } from "./pages/Users";
+import { UserRoutes, Users } from "./pages/Users";
 import { Employees } from "./pages/Employees";
 import { BuyerRoutes } from "./pages/Buyers";
 import GameRoutes from "./pages/Games/routes/GameRoutes";
@@ -24,11 +24,11 @@ function App() {
 					<Routes>
 						<Route path="/login" element={<Login />} />
 						<Route path="/buyers/*" element={<BuyerRoutes />} />
-						<Route path="/employees" element={<Employees />} />
+						<Route path="/employees/*" element={<Employees />} />
 						<Route path="/games/*" element={<GameRoutes />} />
 						<Route path="/sales/*" element={<SaleRoutes />} />
 						<Route path="/tickets/*" element={<TicketRoutes />} />
-						<Route path="/users" element={<Users />} />
+						<Route path="/users/*" element={<UserRoutes />} />
 					</Routes>
 				</Container>
 			</ColorModeContextProvider>

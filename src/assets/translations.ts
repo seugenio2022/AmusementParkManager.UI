@@ -16,7 +16,6 @@ export const resources = {
 			birthdate: 'Birth Date',
 			buyers: 'Buyers',
 			employees: 'Employees',
-			users: 'Users',
 			create: 'New',
 			listBuyers: 'Buyer List',
 			addButton: 'Add',
@@ -60,6 +59,14 @@ export const resources = {
 				dateTime: 'Date and Time',
 				listTickets: 'Ticket List',
 				editTicket: 'Edit Ticket',
+			},
+			users: {
+				menu: 'Users',
+				listUsers: 'User List',
+				addUser: 'Add User',
+				editUser: 'Edit User',
+				userName: 'User Name',
+				password: 'Password'
 			}
 		}
 	},
@@ -80,7 +87,6 @@ export const resources = {
 			birthdate: 'Fecha de nacimiento',
 			buyers: 'Compradores',
 			employees: 'Empleados',
-			users: 'Usuarios',
 			create: 'Nuevo',
 			listBuyers: 'Lista de Compradores',
 			addButton: 'Agregar',
@@ -125,6 +131,14 @@ export const resources = {
 				dateTime: 'Fecha y Hora',
 				listTickets: 'Lista de Entradas',
 				editTicket: 'Editar Entrada'
+			},
+			users: {
+				menu: 'Usuarios',
+				listUsers: 'Lista de Usuarios',
+				addUser: 'Agregar Usuario',
+				editUser: 'Editar Usuario',
+				userName: 'Nombre de Usuario',
+				password: 'Contraseña'
 			}
 		}
 	}
