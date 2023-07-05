@@ -73,6 +73,11 @@ export const resources = {
 				addEmployee: 'Add Employees',
 				editEmployee: 'Edit Employees',
 				type: 'Type',
+			},
+			logout: 'Sign off',
+			userNotFound: "User Not Found",
+			reports: {
+				menu: 'Reports'
 			}
 		}
 	},
@@ -152,6 +157,11 @@ export const resources = {
 				addEmployee: 'Agregar Empleado',
 				editEmployee: 'Editar Empleado',
 				type: 'Tipo',
+			},
+			logout: 'Cerrar Sesión',
+			userNotFound: "Usuario no encontrado",
+			reports: {
+				menu: 'Informes'
 			}
 		}
 	}

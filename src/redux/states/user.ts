@@ -12,7 +12,7 @@ export const EmptyUserState: User = {
 
 export const UserKey = 'user';
 
-export const userSlice = createSlice({
+export const userSlice: any = createSlice({
 	name: 'user',
 	initialState: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user') as string) : EmptyUserState,
 	reducers: {

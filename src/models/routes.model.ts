@@ -9,5 +9,5 @@ export const PrivateRoutes = {
 	SALES: 'sales',
 	TICKETS: 'tickets',
 	USERS: 'users',
-	//HOME: 'Home'
+	REPORTS: 'Reports'
 };

@@ -66,7 +66,7 @@ export default function Configuration() {
 
 	return (
 		<>
-			<IconButton size="large" onClick={setToggleDrawer(true)} color="primary">
+			<IconButton sx={{ mx: 5 }} size="large" onClick={setToggleDrawer(true)} color="primary">
 				<SettingsOutlinedIcon fontSize="inherit" />
 			</IconButton>
 			<Drawer anchor={"right"} open={drawerIsOpen} onClose={setToggleDrawer(false)}>

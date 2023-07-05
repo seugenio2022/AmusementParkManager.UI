@@ -11,6 +11,7 @@ export type SnackAlertType = {
 	showCreatedError: () => void;
 	showUpdatedError: () => void;
 	showDeletedError: () => void;
+	showMessage: (message: string) => void;
 
 }
 export const useSnackAlert = (): SnackAlertType => {
@@ -20,6 +21,11 @@ export const useSnackAlert = (): SnackAlertType => {
 	const showCreatedOk = () => {
 		t("createdOk")
 		setMessage(t<string>("createdOk"))
+		setOpen(true);
+	};
+
+	const showMessage = (message: string) => {
+		setMessage(message)
 		setOpen(true);
 	};
 
@@ -51,5 +57,5 @@ export const useSnackAlert = (): SnackAlertType => {
 	const closeSnackAlert = () => {
 		setOpen(false);
 	};
-	return { message, open, showCreatedOk, showUpdatedOk, showDeletedOk, closeSnackAlert, showCreatedError, showUpdatedError, showDeletedError };
+	return { showMessage, message, open, showCreatedOk, showUpdatedOk, showDeletedOk, closeSnackAlert, showCreatedError, showUpdatedError, showDeletedError };
 }

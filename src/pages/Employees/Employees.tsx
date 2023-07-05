@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { GenericTable } from "@/components/GenericTable";
 import { TableColumn } from "@/models";
-import DrawerFormContextProvider, { DrawerFormContext, DrawerFormContextType } from "@/contexts/drawerFormContext";
+import { DrawerFormContext, DrawerFormContextType } from "@/contexts/drawerFormContext";
 import { useContext, useEffect, useState } from "react";
 import { employeeService } from "./services/employee.service";
 import GenericTableContextProvider from "@/contexts/genericTableContext";
@@ -34,7 +34,7 @@ export default function Employees() {
 			<GenericTableContextProvider>
 				<GenericTable<Employee>
 					columns={employeesColumns}
-					title={t("employees.listBuyers")}
+					title={t("employees.listEmployees")}
 					onAdd={setToggleDrawer(true)}
 					addTitle={t("addButton")}
 					actionForGetAll={actionForGetAll}

@@ -8,9 +8,10 @@ interface Props {
 }
 
 const PrivateValidationFragment = <Outlet />;
-const PublicValidationFragment = <Navigate replace to={PrivateRoutes.BUYERS} />;
+const PublicValidationFragment = <Navigate replace to={PrivateRoutes.REPORTS} />;
 
 export const AuthGuard = ({ privateValidation }: Props) => {
+	debugger;
 	const userState = useSelector((store: AppStore) => store.user);
 	return userState.userName ? (
 		privateValidation ? (
