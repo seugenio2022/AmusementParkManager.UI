@@ -38,7 +38,9 @@ function Edit() {
 	useEffect(() => {
 		console.log();
 	}, []);
-	const handleChangeForm = () => {};
+	const handleChangeForm = () => {
+		console.log("first");
+	};
 	return (
 		<DrawerForm title={t("tickets.editTicket")} onSubmit={onSubmit} formValues={rowForEdit}>
 			<TicketForm onChange={handleChangeForm} />

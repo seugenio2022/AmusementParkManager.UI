@@ -9,16 +9,38 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { useTranslation } from "react-i18next";
 import { Container } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { PrivateRoutes, PublicRoutes } from "@/models";
+import { clearLocalStorage } from "@/utilities";
+import { UserKey, createUser, resetUser } from "@/redux/states/user";
+import { loginService } from "./services";
 
-export default function SignIn() {
+export default function Login() {
 	const { t } = useTranslation();
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	React.useEffect(() => {
+		clearLocalStorage(UserKey);
+		dispatch(resetUser());
+		navigate(`/${PublicRoutes.LOGIN}`, { replace: true });
+	}, []);
+
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const data = new FormData(event.currentTarget);
-		console.log({
-			email: data.get("email"),
-			password: data.get("password"),
-		});
+
+		loginService
+			.login(data.get("userName")?.toString() ?? "", data.get("password")?.toString() ?? "")
+			.then((res) => {
+				debugger;
+				dispatch(createUser({ ...res.data }));
+				navigate(`/${PrivateRoutes.BUYERS}`, { replace: true });
+			})
+			.catch((err) => {
+				alert(err.message);
+			});
 	};
 
 	return (
@@ -37,37 +59,19 @@ export default function SignIn() {
 				<Typography component="h1" variant="h5">
 					{t("login")}
 				</Typography>
-				<Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-					<TextField
-						margin="normal"
-						required
-						fullWidth
-						id="email"
-						label="Email Address"
-						name="email"
-						autoComplete="email"
-						autoFocus
-					/>
+				<Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+					<TextField margin="normal" required fullWidth label={t("users.userName")} name="userName" autoFocus />
 					<TextField
 						margin="normal"
 						required
 						fullWidth
 						name="password"
-						label="Password"
+						label={t("users.password")}
 						type="password"
 						id="password"
-						autoComplete="current-password"
 					/>
-					<FormControlLabel
-						control={<Checkbox value="remember" color="primary" />}
-						label="Remember me"
-					/>
-					<Button
-						type="submit"
-						fullWidth
-						variant="contained"
-						sx={{ mt: 3, mb: 2 }}
-					>
+
+					<Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
 						{t("login")}
 					</Button>
 				</Box>

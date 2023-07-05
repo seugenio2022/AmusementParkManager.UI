@@ -16,6 +16,7 @@ class BuyerService {
 	}
 
 	getAll() {
+
 		return axios.get<Buyer[]>(`${this.url}/getAll`)
 	}
 }
