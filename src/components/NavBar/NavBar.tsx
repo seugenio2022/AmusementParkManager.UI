@@ -28,8 +28,8 @@ export default function NavBar() {
 						<ItemButton onClick={() => navigate("/buyers")} text={t("buyers")} icon={<PersonAddIcon />} />
 						<ItemButton onClick={() => navigate("/employees")} text={t("employees")} icon={<BadgeIcon />} />
 						<ItemButton onClick={() => navigate("/games")} text={t("games.menu")} icon={<AttractionsIcon />} />
-						<ItemButton onClick={() => navigate("/sales")} text={t("sales")} icon={<PointOfSaleIcon />} />
-						<ItemButton onClick={() => navigate("/tickets")} text={t("tickets")} icon={<LocalActivityIcon />} />
+						<ItemButton onClick={() => navigate("/sales")} text={t("sales.menu")} icon={<PointOfSaleIcon />} />
+						<ItemButton onClick={() => navigate("/tickets")} text={t("tickets.menu")} icon={<LocalActivityIcon />} />
 						<ItemButton onClick={() => navigate("/users")} text={t("users")} icon={<ManageAccountsIcon />} />
 					</Box>
 					<Box sx={{ textAlign: "end", ml: "auto" }}>

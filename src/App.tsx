@@ -4,13 +4,12 @@ import { ColorModeContextProvider } from "./contexts";
 import { CssBaseline, Paper } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Login } from "./pages/Login";
-import { Tickets } from "./pages/Tickets";
+import { TicketRoutes } from "./pages/Tickets";
 import { Users } from "./pages/Users";
-import { Sales } from "./pages/Sales";
-import { Games } from "./pages/Games";
 import { Employees } from "./pages/Employees";
 import { BuyerRoutes } from "./pages/Buyers";
 import GameRoutes from "./pages/Games/routes/GameRoutes";
+import { SaleRoutes } from "./pages/Sales/routes";
 
 function App() {
 	const isLogged = true;
@@ -27,8 +26,8 @@ function App() {
 						<Route path="/buyers/*" element={<BuyerRoutes />} />
 						<Route path="/employees" element={<Employees />} />
 						<Route path="/games/*" element={<GameRoutes />} />
-						<Route path="/sales" element={<Sales />} />
-						<Route path="/tickets" element={<Tickets />} />
+						<Route path="/sales/*" element={<SaleRoutes />} />
+						<Route path="/tickets/*" element={<TicketRoutes />} />
 						<Route path="/users" element={<Users />} />
 					</Routes>
 				</Container>

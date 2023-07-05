@@ -17,6 +17,7 @@ export interface TableProps<T> {
 	addTitle: string
 	actionForGetAll: any//() => Promise<AxiosResponse<T[], any>>
 	actionForDelete: (id: number) => Promise<AxiosResponse<any, any>>
-	createForm: any
-	editForm: any
+	createForm?: any
+	editForm: any,
+	messageDelete?: string
 }

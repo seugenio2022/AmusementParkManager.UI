@@ -23,8 +23,9 @@ export type ConfirmDeleteType = {
 	open: any;
 	close: any;
 	handleConfirm: any;
+	messageDelete: string;
 };
-export default function ConfirmDelete({ isOpen, close, handleConfirm }: ConfirmDeleteType) {
+export default function ConfirmDelete({ isOpen, close, handleConfirm, messageDelete }: ConfirmDeleteType) {
 	const { t } = useTranslation();
 	const onConfirmDelete = () => {
 		handleConfirm();
@@ -35,11 +36,9 @@ export default function ConfirmDelete({ isOpen, close, handleConfirm }: ConfirmD
 			<Dialog open={isOpen} TransitionComponent={Transition} keepMounted onClose={close}>
 				<DeleteOutlineIcon fontSize="large" sx={{ width: "auto" }} />
 				<DialogTitle>{t("confirmDelete")}</DialogTitle>
-				{/* <DialogContent>
-					<DialogContentText>
-						
-					</DialogContentText>
-				</DialogContent> */}
+				<DialogContent>
+					<DialogContentText>{messageDelete}</DialogContentText>
+				</DialogContent>
 				<DialogActions>
 					<APMButton onClick={close}>{t("cancel")}</APMButton>
 					<APMButton color="error" onClick={() => onConfirmDelete()}>

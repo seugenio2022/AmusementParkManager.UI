@@ -39,6 +39,7 @@ function Create() {
 	function onDeleteSchedule(id?: number) {
 		setSchedules((schs) => schs.filter((sh) => sh.id !== id));
 	}
+
 	return (
 		<DrawerForm title={t("games.addGame")} onSubmit={onSubmit} formValues={emptyGame}>
 			<Field fullWidth name="name" label={t("name")} variant="outlined" as={TextField} />

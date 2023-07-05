@@ -9,8 +9,9 @@ type Props = {
 	formValues: any;
 	onSubmit: any;
 	children?: React.ReactNode;
+	width?: number;
 };
-function DrawerForm({ title, formValues, onSubmit, children }: Props) {
+function DrawerForm({ title, formValues, onSubmit, children, width }: Props) {
 	const { drawerIsOpen, setToggleDrawer, closeDrawer } = useContext(DrawerFormContext) as DrawerFormContextType;
 	const { t } = useTranslation();
 
@@ -35,7 +36,7 @@ function DrawerForm({ title, formValues, onSubmit, children }: Props) {
 					<Stack p={3} spacing={3}>
 						<Typography variant="h6">{title}</Typography>
 						<Box
-							width={400}
+							width={width ?? 400}
 							sx={{
 								"& .MuiTextField-root": { m: 1 },
 								display: "flex",

@@ -29,6 +29,7 @@ export default function GenericTable<T>({
 	addTitle,
 	actionForGetAll,
 	actionForDelete,
+	messageDelete,
 	createForm,
 	editForm,
 }: TableProps<T>) {
@@ -95,9 +96,14 @@ export default function GenericTable<T>({
 				<Typography sx={{ display: "inline-flex", width: "85%" }} p={3} variant="h6">
 					{title}
 				</Typography>
-				<APMButton startIcon={<AddIcon />} onClick={() => handleOnAdd()}>
-					{addTitle}
-				</APMButton>
+				{createForm ? (
+					<APMButton startIcon={<AddIcon />} onClick={() => handleOnAdd()}>
+						{addTitle}
+					</APMButton>
+				) : (
+					""
+				)}
+
 				<TableContainer>
 					<Table>
 						<TableHead>
@@ -143,6 +149,7 @@ export default function GenericTable<T>({
 				isOpen={confirmDelete.isOpen}
 				open={confirmDelete.open}
 				close={confirmDelete.close}
+				messageDelete={messageDelete ?? ""}
 			/>
 		</>
 	);

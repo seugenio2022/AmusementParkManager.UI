@@ -16,9 +16,6 @@ export const resources = {
 			birthdate: 'Birth Date',
 			buyers: 'Buyers',
 			employees: 'Employees',
-
-			sales: 'Sales',
-			tickets: 'Tickets',
 			users: 'Users',
 			create: 'New',
 			listBuyers: 'Buyer List',
@@ -44,7 +41,26 @@ export const resources = {
 			},
 			confirmDelete: 'Are you sure you want to delete?',
 			confirm: 'Confirm',
-			cancel: 'Cancel'
+			cancel: 'Cancel',
+			sales: {
+				menu: 'Sales',
+				listSales: 'Sale List',
+				addSale: 'Add Sale',
+				editSale: 'Edit Sale',
+				date: 'Date',
+				addTicket: 'Add Ticket',
+				totalPrice: 'Total Price',
+				messageDelete: 'All tickets assigned to this sale will be removed'
+			},
+			tickets: {
+				menu: 'Tickets',
+				id: 'Code',
+				buyer: 'Buyer',
+				game: 'Game',
+				dateTime: 'Date and Time',
+				listTickets: 'Ticket List',
+				editTicket: 'Edit Ticket',
+			}
 		}
 	},
 	es: {
@@ -64,8 +80,6 @@ export const resources = {
 			birthdate: 'Fecha de nacimiento',
 			buyers: 'Compradores',
 			employees: 'Empleados',
-			sales: 'Ventas',
-			tickets: 'Entradas',
 			users: 'Usuarios',
 			create: 'Nuevo',
 			listBuyers: 'Lista de Compradores',
@@ -87,11 +101,31 @@ export const resources = {
 				price: 'Precio',
 				schedules: 'Horarios',
 				initialTime: 'Inicio',
-				endTime: 'Fin'
+				endTime: 'Fin',
+
 			},
 			confirmDelete: '¿Estás seguro de que quieres eliminar?',
 			confirm: 'Confirmar',
-			cancel: 'Cancelar'
+			cancel: 'Cancelar',
+			sales: {
+				menu: 'Ventas',
+				listSales: 'Lista de Ventas',
+				addSale: 'Agregar Venta',
+				editSale: 'Editar Venta',
+				date: 'Fecha',
+				addTicket: 'Agregar Entrada',
+				totalPrice: 'Precio Total',
+				messageDelete: 'Todas las entradas asignadas a esta venta serán eliminadas'
+			},
+			tickets: {
+				menu: 'Entradas',
+				id: 'Código',
+				buyer: 'Comprador',
+				game: 'Juego',
+				dateTime: 'Fecha y Hora',
+				listTickets: 'Lista de Entradas',
+				editTicket: 'Editar Entrada'
+			}
 		}
 	}
 }

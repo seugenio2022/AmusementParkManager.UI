@@ -5,11 +5,15 @@ export type Game = {
 	name: string,
 	price?: number,
 	schedules: Schedule[]
+	employeesList: []
+	tickets: []
 	schedulesFormatted: string[]
 }
 
 export const emptyGame: Game = {
 	name: "",
 	schedules: [],
-	schedulesFormatted: []
+	schedulesFormatted: [],
+	employeesList: [],
+	tickets: []
 };
