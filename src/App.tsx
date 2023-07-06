@@ -17,6 +17,7 @@ import store from "./redux/store";
 import ReportRoutes from "./pages/Reports/routes/ReportRoutes";
 import RoleGuard from "./guards/rol.guard";
 import { Roles } from "./models";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
 	return (
@@ -30,7 +31,7 @@ function App() {
 						<RoutesWithNotFound>
 							<Route path="/" element={<Login />} />
 							<Route path="/login" element={<Login />} />
-							<Route path="*" element={<>NOT FOUND</>} />
+							<Route path="*" element={<NotFound />} />
 
 							<Route element={<AuthGuard privateValidation={true} />}>
 								<Route path="/reports/*" element={<ReportRoutes />} />

@@ -78,6 +78,32 @@ export const resources = {
 			userNotFound: "User Not Found",
 			reports: {
 				menu: 'Reports'
+			},
+			roles: {
+				admin: 'Admin',
+				game: 'Game',
+			},
+			day: 'Day',
+			days: {
+				sunday: 'Sunday',
+				monday: 'Monday',
+				tuesday: 'Tuesday',
+				wednesday: 'Wednesday',
+				thursday: 'Thursday',
+				friday: 'Friday',
+				saturday: 'Saturday',
+			},
+			salesTotalPriceByDay: {
+				title: 'Total amount of sales',
+				description: 'Total sum of sales amounts on a given day'
+			},
+			ticketsByGameAndSaleDate: {
+				title: 'Count of Tickets Sold per Game',
+				description: 'Count of tickets sold for a certain game, on a particular date'
+			},
+			ticketsBySaleDate: {
+				title: 'Count of tickets sold',
+				description: 'Count of tickets sold across all games on a given date'
 			}
 		}
 	},
@@ -162,6 +188,32 @@ export const resources = {
 			userNotFound: "Usuario no encontrado",
 			reports: {
 				menu: 'Informes'
+			},
+			roles: {
+				admin: 'Administrador',
+				game: 'Juego',
+			},
+			day: 'Día',
+			days: {
+				sunday: 'Domingo',
+				monday: 'Lunes',
+				tuesday: 'Martes',
+				wednesday: 'Miércoles',
+				thursday: 'Jueves',
+				friday: 'Viernes',
+				saturday: 'Sábado',
+			},
+			salesTotalPriceByDay: {
+				title: 'Monto Total de ventas',
+				description: 'Sumatoria total de los montos de ventas en un determinado día'
+			},
+			ticketsByGameAndSaleDate: {
+				title: 'Cantidad de entradas vendidas por Juego',
+				description: 'Cantidad de entradas vendidas para un determinado juego, en una fecha particular'
+			},
+			ticketsBySaleDate: {
+				title: 'Cantidad de entradas vendidas',
+				description: 'Cantidad de entradas vendidas en todos los juegos en una fecha determinada'
 			}
 		}
 	}

@@ -16,7 +16,6 @@ function Edit() {
 	const [saleDate, setsaleDate] = useState("");
 	const { drawerIsOpen } = useContext(DrawerFormContext) as DrawerFormContextType;
 	const onSubmit = (newSale: Sale) => {
-		debugger;
 		newSale.saleDate = changeFormatToLocalDate(saleDate);
 		saleService
 			.updateDate(newSale)

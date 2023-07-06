@@ -19,7 +19,7 @@ import { GenericTableContext, GenericTableContextType } from "@/contexts/generic
 import { useContext, useEffect, useState } from "react";
 import { DrawerFormContext, DrawerFormContextType } from "@/contexts/drawerFormContext";
 import { SnackAlert } from "../SnackAlert";
-import useConfirmDelete from "@/hooks/useConfirmDelete";
+import useConfirmDelete from "@/hooks/useConfirmDelete.hook";
 
 export default function GenericTable<T>({
 	columns,

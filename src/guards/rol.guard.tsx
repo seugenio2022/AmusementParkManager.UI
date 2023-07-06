@@ -8,7 +8,6 @@ interface Props {
 }
 
 function RoleGuard({ rol }: Props) {
-	debugger;
 	const userState = useSelector((store: AppStore) => store.user);
 	return userState.role === rol ? <Outlet /> : <Navigate replace to={PrivateRoutes.REPORTS} />;
 }

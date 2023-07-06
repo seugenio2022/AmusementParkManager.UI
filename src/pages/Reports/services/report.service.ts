@@ -15,8 +15,8 @@ class ReportService {
 	}
 
 	//Sumatoria total de los montos de ventas en un determinado día
-	getSaleTotalPriceByDay(day: string) {
-		return axios.get<number>(`${this.url}/getSaleTotalPriceByDay?date=${day}`)
+	getSaleTotalPriceByDay(day: number) {
+		return axios.get<number>(`${this.url}/getSaleTotalPriceByDay?day=${day}`)
 	}
 
 	//Sumatoria total de los montos de ventas en un determinado mes y año

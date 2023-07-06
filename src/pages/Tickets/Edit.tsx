@@ -18,7 +18,6 @@ function Edit() {
 	const ticketForm = useTicketForm();
 
 	const onSubmit = () => {
-		debugger;
 		const ticketToSend: Ticket = {
 			id: ticketForm.ticket.id,
 			buyerId: ticketForm.buyerSelected.id ?? 0,
