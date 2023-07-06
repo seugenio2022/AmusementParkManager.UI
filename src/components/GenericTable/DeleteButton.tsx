@@ -1,7 +1,5 @@
 import { IconButton } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { useContext } from "react";
-import { GenericTableContext, GenericTableContextType } from "@/contexts/genericTableContext";
 
 type DeleteButtonProps = {
 	onClick: any;

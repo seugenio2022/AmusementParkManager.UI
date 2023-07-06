@@ -1,6 +1,5 @@
-import store, { AppStore } from "@/redux/store";
+import store from "@/redux/store";
 import axios from "axios";
-import { useSelector } from "react-redux";
 
 export const AxiosInterceptor = () => {
 	axios.interceptors.request.use((request) => {

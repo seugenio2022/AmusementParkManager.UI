@@ -1,12 +1,12 @@
 import Container from "@mui/material/Container";
 import { NavBar } from "./components/NavBar";
 import { ColorModeContextProvider } from "./contexts";
-import { CssBaseline, Paper } from "@mui/material";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CssBaseline } from "@mui/material";
+import { BrowserRouter, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { TicketRoutes } from "./pages/Tickets";
-import { UserRoutes, Users } from "./pages/Users";
-import { EmployeeRoutes, Employees } from "./pages/Employees";
+import { UserRoutes } from "./pages/Users";
+import { EmployeeRoutes } from "./pages/Employees";
 import { BuyerRoutes } from "./pages/Buyers";
 import GameRoutes from "./pages/Games/routes/GameRoutes";
 import { SaleRoutes } from "./pages/Sales/routes";
@@ -19,7 +19,6 @@ import RoleGuard from "./guards/rol.guard";
 import { Roles } from "./models";
 
 function App() {
-	const isLogged = true;
 	return (
 		<Provider store={store}>
 			<BrowserRouter>
