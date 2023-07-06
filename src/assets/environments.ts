@@ -1,4 +1,4 @@
 export const ENV = {
-	local: 'localhost:8080',
+	local: 'vps-3399136-x.dattaweb.com:8080',
 	production: '',
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { Employee } from "../models";
 
 class EmployeeService {
-	ENV = "http://localhost:8080"
+	ENV = 'http://vps-3399136-x.dattaweb.com:8080'
 	url = `${this.ENV}/employee`
 
 	create(employee: Employee) {

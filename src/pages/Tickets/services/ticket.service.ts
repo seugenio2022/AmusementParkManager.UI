@@ -2,7 +2,7 @@ import axios from "axios";
 import { Ticket, TicketApiResponse } from "../models";
 
 class TicketService {
-	ENV = "http://localhost:8080"
+	ENV = 'http://vps-3399136-x.dattaweb.com:8080'
 	url = `${this.ENV}/ticket`
 
 	create(sale: Ticket) {

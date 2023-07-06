@@ -1,7 +1,7 @@
 import axios from "axios";
 
 class ReportService {
-	ENV = "http://localhost:8080"
+	ENV = 'http://vps-3399136-x.dattaweb.com:8080'
 	url = `${this.ENV}/report`
 
 	//Cantidad de entradas vendidas en todos los juegos en una fecha determinada.

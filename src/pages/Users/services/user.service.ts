@@ -1,7 +1,7 @@
 import axios from "axios";
 import { User } from "../models";
 class UserService {
-	ENV = "http://localhost:8080"
+	ENV = 'http://vps-3399136-x.dattaweb.com:8080'
 	url = `${this.ENV}/user`
 
 	create(user: User) {
