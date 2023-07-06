@@ -5,8 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
-CMD ["yarn", "dev"]
+CMD ["npm", "run", "dev"]
 
 #for prod
 #FROM node:16-alpine AS build
