@@ -94,7 +94,7 @@ export const resources = {
 				saturday: 'Saturday',
 			},
 			salesTotalPriceByDay: {
-				title: 'Total amount of sales',
+				title: 'Total amount of Sales',
 				description: 'Total sum of sales amounts on a given day'
 			},
 			ticketsByGameAndSaleDate: {
@@ -104,6 +104,10 @@ export const resources = {
 			ticketsBySaleDate: {
 				title: 'Count of tickets sold',
 				description: 'Count of tickets sold across all games on a given date'
+			},
+			salesTotalPriceByMonthAndYear: {
+				title: 'Total amount of Sales by Month and Year',
+				description: 'Total sum of sales amounts in a given month and year'
 			}
 		}
 	},
@@ -214,6 +218,10 @@ export const resources = {
 			ticketsBySaleDate: {
 				title: 'Cantidad de entradas vendidas',
 				description: 'Cantidad de entradas vendidas en todos los juegos en una fecha determinada'
+			},
+			salesTotalPriceByMonthAndYear: {
+				title: 'Cantidad total de ventas por mes y año',
+				description: 'Sumatoria total de los montos de ventas en un determinado mes y año'
 			}
 		}
 	}

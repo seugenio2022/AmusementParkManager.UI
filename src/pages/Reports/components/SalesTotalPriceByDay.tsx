@@ -41,7 +41,7 @@ function SalesTotalPriceByDay() {
 			data={totalAmountString}
 			description={t("salesTotalPriceByDay.description")}
 		>
-			<FormControl fullWidth sx={{ my: 2 }}>
+			<FormControl fullWidth>
 				<InputLabel>{t("day")}</InputLabel>
 				<Select value={daySelected} label={t("day")} onChange={handleChangeDate}>
 					{daysOfWeek.map((d) => (

@@ -13,7 +13,7 @@ function PaperReport({ title, data, description, children }: PaperReportType) {
 				p: 2,
 				display: "flex",
 				flexDirection: "column",
-				height: 400,
+				height: 450,
 				textAlign: "center",
 			}}
 		>
@@ -23,7 +23,7 @@ function PaperReport({ title, data, description, children }: PaperReportType) {
 			<Typography component="p" variant="h4" pb={2}>
 				{data}
 			</Typography>
-			<Typography height={"80px"} color="text.secondary">
+			<Typography height={"120px"} color="text.secondary">
 				{description}
 			</Typography>
 			<Stack direction={"column"}>{children}</Stack>

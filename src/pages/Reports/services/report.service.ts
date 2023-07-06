@@ -20,7 +20,7 @@ class ReportService {
 	}
 
 	//Sumatoria total de los montos de ventas en un determinado mes y año
-	getSaleTotalPriceByMonthAndYear(month: string, year: string) {
+	getSaleTotalPriceByMonthAndYear(month: number, year: number) {
 		return axios.get<number>(`${this.url}/getSaleTotalPriceByMonthAndYear?month=${month}&year=${year}`)
 	}
 
